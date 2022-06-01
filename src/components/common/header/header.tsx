@@ -1,41 +1,20 @@
-import styled from 'styled-components';
-
-const HeaderContainer = styled.div`
-  width: 100%;
-  max-width: 1000px;
-  height: 50px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  > .header-nav-container {
-    width: fit-content;
-    height: 100%;
-    display: flex;
-    align-items: center;
-
-    /* 로고 부분 */
-    > .logo {
-      font-size: 3em;
-      font-weight: 600;
-    }
-
-    /* 네비게이션 부분*/
-    > .header-nav {
-      font-weight: 500;
-      font-size: 1.5em;
-      width: 7rem;
-      text-align: center;
-    }
-  }
-`;
+import { useEffect, useState } from 'react';
+import { HeaderContainer } from './styles';
 
 const Header = (): JSX.Element => {
+  const [scroll, setScroll] = useState<boolean>(false);
+
+  window.addEventListener('scroll', function (e) {
+    if (this.document.documentElement.scrollTop < 20) {
+      setScroll(false);
+    }
+    if (this.document.documentElement.scrollTop >= 20) {
+      setScroll(true);
+    }
+  });
+
   return (
-    <HeaderContainer>
+    <HeaderContainer isScrolled={scroll}>
       <div className="header-nav-container">
         <div className="logo">HanA</div>
       </div>
