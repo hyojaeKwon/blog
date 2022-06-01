@@ -4,6 +4,8 @@ import MainPostContainer from '../mainPosts/mainPostContainer';
 import SubPostContainer from '../subPosts/subPostContainer';
 
 const PostContainer = styled.div`
+  margin-top: 140px;
+
   width: 100%;
   max-width: 1000px;
   height: auto;

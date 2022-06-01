@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
+interface SProps {
+  isScrolled: boolean;
+}
+export const HeaderContainer = styled.div<SProps>`
+  position: fixed;
+  z-index: 50;
   max-width: 1000px;
   width: 100%;
   height: 50px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  background-color: white;
+  padding-bottom: 1rem;
+  border-bottom: ${(props) => (props.isScrolled ? '0.3px solid #dedede' : 'none')};
 
   justify-content: space-between;
   display: flex;
